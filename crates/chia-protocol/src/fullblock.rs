@@ -8,6 +8,8 @@ use crate::RewardChainBlock;
 use crate::VDFProof;
 use crate::{Foliage, FoliageTransactionBlock, TransactionsInfo};
 use chia_traits::Streamable;
+#[cfg(feature = "serde")]
+use serde::{Serialize};
 
 #[streamable]
 pub struct FullBlock {

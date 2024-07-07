@@ -4,6 +4,8 @@ use crate::Bytes32;
 use crate::Coin;
 use crate::PoolTarget;
 use chia_bls::G2Element;
+#[cfg(feature = "serde")]
+use serde::{Serialize};
 
 #[streamable]
 pub struct TransactionsInfo {

@@ -11,6 +11,9 @@ mod signature;
 #[cfg(feature = "py-bindings")]
 mod parse_hex;
 
+#[cfg(feature = "serde")]
+use serde::{Serialize};
+
 pub use bls_cache::BlsCache;
 pub use derive_keys::*;
 pub use error::{Error, Result};
@@ -22,5 +25,7 @@ pub use signature::{
     hash_to_g2_with_dst, sign, sign_raw, verify, Signature,
 };
 
+#[cfg_attr(feature = "serde", derive(Serialize))]
 pub type G1Element = PublicKey;
+#[cfg_attr(feature = "serde", derive(Serialize))]
 pub type G2Element = Signature;

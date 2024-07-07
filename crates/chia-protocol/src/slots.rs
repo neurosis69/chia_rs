@@ -5,6 +5,8 @@ use crate::ProofOfSpace;
 use crate::VDFInfo;
 use crate::VDFProof;
 use chia_bls::G2Element;
+#[cfg(feature = "serde")]
+use serde::{Serialize};
 
 // The hash of this is used as the challenge_hash for the ICC VDF
 #[streamable]

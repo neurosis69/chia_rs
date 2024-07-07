@@ -1,5 +1,8 @@
 use thiserror::Error;
+#[cfg(feature = "serde")]
+use serde::{Serialize};
 
+#[cfg_attr(feature = "serde", derive(Serialize))]
 #[derive(Debug, PartialEq, Eq, Clone, Error)]
 pub enum Error {
     #[error("invalid bool encoding")]

@@ -1,4 +1,6 @@
 use chia_streamable_macro::streamable;
+#[cfg(feature = "serde")]
+use serde::{Serialize};
 
 #[streamable]
 pub struct FeeRate {

@@ -14,6 +14,8 @@ use clvmr::ENABLE_FIXED_DIV;
 
 #[cfg(feature = "py-bindings")]
 use pyo3::prelude::*;
+#[cfg(feature = "serde")]
+use serde::{Serialize};
 
 #[streamable]
 pub struct SpendBundle {

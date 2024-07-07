@@ -2,6 +2,8 @@ use chia_streamable_macro::streamable;
 
 use crate::coin::Coin;
 use crate::program::Program;
+#[cfg(feature = "serde")]
+use serde::{Serialize};
 
 #[streamable]
 pub struct CoinSpend {

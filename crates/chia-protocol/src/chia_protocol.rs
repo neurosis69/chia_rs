@@ -5,9 +5,13 @@ use crate::Bytes;
 #[cfg(feature = "py-bindings")]
 use chia_py_streamable_macro::{PyJsonDict, PyStreamable};
 
+#[cfg(feature = "serde")]
+use serde::{Serialize};
+
 #[repr(u8)]
 #[cfg_attr(feature = "py-bindings", derive(PyJsonDict, PyStreamable))]
 #[cfg_attr(feature = "arbitrary", derive(arbitrary::Arbitrary))]
+#[cfg_attr(feature = "serde", derive(Serialize))]
 #[derive(Streamable, Hash, Debug, Copy, Clone, Eq, PartialEq)]
 pub enum ProtocolMessageTypes {
     // Shared protocol (all services)
@@ -144,6 +148,7 @@ impl chia_traits::ChiaToPython for ProtocolMessageTypes {
     }
 }
 
+#[cfg_attr(feature = "serde", derive(Serialize))]
 pub trait ChiaProtocolMessage {
     fn msg_type() -> ProtocolMessageTypes;
 }
@@ -151,6 +156,7 @@ pub trait ChiaProtocolMessage {
 #[repr(u8)]
 #[cfg_attr(feature = "py-bindings", derive(PyJsonDict, PyStreamable))]
 #[cfg_attr(feature = "arbitrary", derive(arbitrary::Arbitrary))]
+#[cfg_attr(feature = "serde", derive(Serialize))]
 #[derive(Streamable, Hash, Debug, Copy, Clone, Eq, PartialEq)]
 pub enum NodeType {
     FullNode = 1,

@@ -5,6 +5,8 @@ use crate::{
     Bytes, Bytes32, EndOfSubSlotBundle, Foliage, FoliageTransactionBlock,
     RewardChainBlockUnfinished, VDFProof,
 };
+#[cfg(feature = "serde")]
+use serde::{Serialize};
 
 #[streamable]
 pub struct UnfinishedHeaderBlock {

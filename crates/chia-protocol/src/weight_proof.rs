@@ -6,6 +6,8 @@ use crate::HeaderBlock;
 use crate::ProofOfSpace;
 use crate::RewardChainBlock;
 use crate::{VDFInfo, VDFProof};
+#[cfg(feature = "serde")]
+use serde::{Serialize};
 
 #[streamable]
 pub struct SubEpochData {

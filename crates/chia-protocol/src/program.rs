@@ -14,8 +14,11 @@ use clvmr::{Allocator, ChiaDialect};
 use sha2::{Digest, Sha256};
 use std::io::Cursor;
 use std::ops::Deref;
+#[cfg(feature = "serde")]
+use serde::{Serialize};
 
 #[cfg_attr(feature = "py-bindings", pyclass, derive(PyStreamable))]
+#[cfg_attr(feature = "serde", derive(Serialize))]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct Program(Bytes);
 

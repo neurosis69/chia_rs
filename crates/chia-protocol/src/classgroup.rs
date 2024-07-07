@@ -3,6 +3,8 @@ use chia_streamable_macro::streamable;
 
 #[cfg(feature = "py-bindings")]
 use pyo3::prelude::*;
+#[cfg(feature = "serde")]
+use serde::{Serialize};
 
 #[streamable]
 #[derive(Copy)]

@@ -1,6 +1,8 @@
 use crate::bytes::{Bytes, Bytes32};
 use chia_bls::G1Element;
 use chia_streamable_macro::streamable;
+#[cfg(feature = "serde")]
+use serde::{Serialize};
 
 #[streamable]
 pub struct ProofOfSpace {

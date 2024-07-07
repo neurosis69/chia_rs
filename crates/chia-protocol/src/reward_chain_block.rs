@@ -7,6 +7,8 @@ use chia_bls::G2Element;
 
 #[cfg(feature = "py-bindings")]
 use pyo3::prelude::*;
+#[cfg(feature = "serde")]
+use serde::{Serialize};
 
 #[streamable]
 pub struct RewardChainBlockUnfinished {

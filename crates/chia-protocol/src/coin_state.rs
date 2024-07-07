@@ -1,5 +1,7 @@
 use crate::coin::Coin;
 use chia_streamable_macro::streamable;
+#[cfg(feature = "serde")]
+use serde::{Serialize};
 
 #[streamable]
 #[derive(Copy)]

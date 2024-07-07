@@ -7,6 +7,8 @@ use crate::HeaderBlock;
 use crate::Program;
 use crate::SpendBundle;
 use crate::{Bytes, Bytes32};
+#[cfg(feature = "serde")]
+use serde::{Serialize};
 
 #[streamable(message)]
 pub struct RequestPuzzleSolution {

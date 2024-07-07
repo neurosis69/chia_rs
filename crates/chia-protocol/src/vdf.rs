@@ -2,6 +2,8 @@ use chia_streamable_macro::streamable;
 
 use crate::ClassgroupElement;
 use crate::{Bytes, Bytes32};
+#[cfg(feature = "serde")]
+use serde::{Serialize};
 
 #[streamable]
 pub struct VDFInfo {

@@ -17,9 +17,12 @@ use pyo3::exceptions::PyValueError;
 use pyo3::prelude::*;
 #[cfg(feature = "py-bindings")]
 use pyo3::types::PyBytes;
+#[cfg(feature = "serde")]
+use serde::{Serialize, Serializer};
 
 #[derive(Default, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 #[cfg_attr(feature = "arbitrary", derive(arbitrary::Arbitrary))]
+#[cfg_attr(feature = "serde", derive(Serialize))]
 pub struct Bytes(Vec<u8>);
 
 impl Bytes {
@@ -368,6 +371,13 @@ impl<const N: usize> Deref for BytesImpl<N> {
 
     fn deref(&self) -> &[u8] {
         &self.0
+    }
+}
+
+#[cfg(feature = "serde")]
+impl<const N: usize> Serialize for BytesImpl<N> {
+    fn serialize<S: Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
+        serializer.serialize_str(&hex::encode(self.0))
     }
 }
 

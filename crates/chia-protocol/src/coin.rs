@@ -8,6 +8,8 @@ use sha2::{Digest, Sha256};
 
 #[cfg(feature = "py-bindings")]
 use pyo3::prelude::*;
+#[cfg(feature = "serde")]
+use serde::{Serialize};
 
 #[streamable]
 #[derive(Copy)]
