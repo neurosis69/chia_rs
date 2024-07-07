@@ -21,6 +21,7 @@ use serde::{Serialize};
 #[streamable]
 pub struct SpendBundle {
     coin_spends: Vec<CoinSpend>,
+    #[cfg_attr(feature = "serde", serde(skip))]
     aggregated_signature: G2Element,
 }
 

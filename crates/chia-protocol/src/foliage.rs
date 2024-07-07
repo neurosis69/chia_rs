@@ -13,6 +13,7 @@ pub struct TransactionsInfo {
     // Information that goes along with each transaction block
     generator_root: Bytes32, // sha256 of the block generator in this block
     generator_refs_root: Bytes32, // sha256 of the concatenation of the generator ref list entries
+    #[cfg_attr(feature = "serde", serde(skip))]
     aggregated_signature: G2Element,
     fees: u64, // This only includes user fees, not block rewards
     cost: u64, // This is the total cost of this block, including CLVM cost, cost of program size and conditions
