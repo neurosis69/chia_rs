@@ -18,8 +18,10 @@ pub struct RewardChainBlockUnfinished {
     pos_ss_cc_challenge_hash: Bytes32,
     proof_of_space: ProofOfSpace,
     challenge_chain_sp_vdf: Option<VDFInfo>, // Not present for first sp in slot
+    #[cfg_attr(feature = "serde", serde(skip))]
     challenge_chain_sp_signature: G2Element,
     reward_chain_sp_vdf: Option<VDFInfo>, // Not present for first sp in slot
+    #[cfg_attr(feature = "serde", serde(skip))]
     reward_chain_sp_signature: G2Element,
 }
 
@@ -33,9 +35,11 @@ pub struct RewardChainBlock {
     pos_ss_cc_challenge_hash: Bytes32,
     proof_of_space: ProofOfSpace,
     challenge_chain_sp_vdf: Option<VDFInfo>, // Not present for first sp in slot
+    #[cfg_attr(feature = "serde", serde(skip))]
     challenge_chain_sp_signature: G2Element,
     challenge_chain_ip_vdf: VDFInfo,
     reward_chain_sp_vdf: Option<VDFInfo>, // Not present for first sp in slot
+    #[cfg_attr(feature = "serde", serde(skip))]
     reward_chain_sp_signature: G2Element,
     reward_chain_ip_vdf: VDFInfo,
     infused_challenge_chain_ip_vdf: Option<VDFInfo>, // Iff deficit < 16

@@ -14,6 +14,7 @@ use serde::{Serialize};
 pub struct ChallengeBlockInfo {
     proof_of_space: ProofOfSpace,
     challenge_chain_sp_vdf: Option<VDFInfo>, // Only present if not the first sp
+    #[cfg_attr(feature = "serde", serde(skip))]
     challenge_chain_sp_signature: G2Element,
     challenge_chain_ip_vdf: VDFInfo,
 }
