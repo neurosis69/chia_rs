@@ -21,7 +21,10 @@ pub(crate) const DST: &[u8] = b"BLS_SIG_BLS12381G2_XMD:SHA-256_SSWU_RO_AUG_";
 )]
 #[cfg_attr(feature = "serde", derive(Serialize))]
 #[derive(Clone, Default)]
-pub struct Signature(pub(crate) blst_p2);
+pub struct Signature(
+    #[cfg_attr(feature = "serde", serde(skip))] 
+    pub(crate) blst_p2
+);
 
 #[cfg(feature = "arbitrary")]
 impl<'a> arbitrary::Arbitrary<'a> for Signature {

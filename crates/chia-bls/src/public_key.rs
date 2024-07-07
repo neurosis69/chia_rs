@@ -19,7 +19,10 @@ use serde::{Serialize};
 )]
 #[cfg_attr(feature = "serde", derive(Serialize))]
 #[derive(Clone, Copy, Default)]
-pub struct PublicKey(pub(crate) blst_p1);
+pub struct PublicKey(
+    #[cfg_attr(feature = "serde", serde(skip))] 
+    pub(crate) blst_p1
+);
 
 #[cfg(feature = "arbitrary")]
 impl<'a> arbitrary::Arbitrary<'a> for PublicKey {
