@@ -8,6 +8,8 @@ use std::hash::{Hash, Hasher};
 use std::io::Cursor;
 use std::mem::MaybeUninit;
 use std::ops::{Add, AddAssign, Neg, SubAssign};
+#[cfg(feature = "serde")]
+use serde::{Serialize};
 
 // we use the augmented scheme
 pub(crate) const DST: &[u8] = b"BLS_SIG_BLS12381G2_XMD:SHA-256_SSWU_RO_AUG_";
@@ -17,6 +19,7 @@ pub(crate) const DST: &[u8] = b"BLS_SIG_BLS12381G2_XMD:SHA-256_SSWU_RO_AUG_";
     pyo3::pyclass(name = "G2Element"),
     derive(chia_py_streamable_macro::PyStreamable)
 )]
+#[cfg_attr(feature = "serde", derive(Serialize))]
 #[derive(Clone, Default)]
 pub struct Signature(pub(crate) blst_p2);
 
