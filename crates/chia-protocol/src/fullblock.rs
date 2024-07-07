@@ -11,6 +11,7 @@ use chia_traits::Streamable;
 #[cfg(feature = "serde")]
 use serde::{Serialize};
 
+#[cfg_attr(feature = "serde", derive(Serialize))]
 #[streamable]
 pub struct FullBlock {
     finished_sub_slots: Vec<EndOfSubSlotBundle>,
