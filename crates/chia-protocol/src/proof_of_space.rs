@@ -4,6 +4,7 @@ use chia_streamable_macro::streamable;
 #[cfg(feature = "serde")]
 use serde::{Serialize};
 
+#[cfg_attr(feature = "serde", derive(Serialize))]
 #[streamable]
 pub struct ProofOfSpace {
     challenge: Bytes32,

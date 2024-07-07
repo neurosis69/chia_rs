@@ -9,6 +9,7 @@ use crate::{VDFInfo, VDFProof};
 #[cfg(feature = "serde")]
 use serde::{Serialize};
 
+#[cfg_attr(feature = "serde", derive(Serialize))]
 #[streamable]
 pub struct SubEpochData {
     reward_chain_hash: Bytes32,
@@ -27,6 +28,7 @@ pub struct SubEpochData {
 //                            0.48
 // total number of challenge blocks == total number of reward chain blocks
 
+#[cfg_attr(feature = "serde", derive(Serialize))]
 #[streamable]
 pub struct SubSlotData {
     proof_of_space: Option<ProofOfSpace>,
@@ -58,6 +60,7 @@ impl SubSlotData {
     }
 }
 
+#[cfg_attr(feature = "serde", derive(Serialize))]
 #[streamable]
 pub struct SubEpochChallengeSegment {
     sub_epoch_n: u32,
@@ -76,12 +79,14 @@ pub struct RecentChainData {
     recent_chain_data: Vec<HeaderBlock>,
 }
 
+#[cfg_attr(feature = "serde", derive(Serialize))]
 #[streamable]
 pub struct ProofBlockHeader {
     finished_sub_slots: Vec<EndOfSubSlotBundle>,
     reward_chain_block: RewardChainBlock,
 }
 
+#[cfg_attr(feature = "serde", derive(Serialize))]
 #[streamable]
 pub struct WeightProof {
     sub_epochs: Vec<SubEpochData>,

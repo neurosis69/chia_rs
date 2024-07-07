@@ -4,6 +4,7 @@ use crate::Bytes32;
 #[cfg(feature = "serde")]
 use serde::{Serialize};
 
+#[cfg_attr(feature = "serde", derive(Serialize))]
 #[streamable]
 pub struct SubEpochSummary {
     prev_subepoch_summary_hash: Bytes32,

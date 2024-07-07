@@ -9,6 +9,7 @@ use chia_bls::G2Element;
 use serde::{Serialize};
 
 // The hash of this is used as the challenge_hash for the ICC VDF
+#[cfg_attr(feature = "serde", derive(Serialize))]
 #[streamable]
 pub struct ChallengeBlockInfo {
     proof_of_space: ProofOfSpace,
@@ -17,6 +18,7 @@ pub struct ChallengeBlockInfo {
     challenge_chain_ip_vdf: VDFInfo,
 }
 
+#[cfg_attr(feature = "serde", derive(Serialize))]
 #[streamable]
 pub struct ChallengeChainSubSlot {
     challenge_chain_end_of_slot_vdf: VDFInfo,
@@ -26,11 +28,13 @@ pub struct ChallengeChainSubSlot {
     new_difficulty: Option<u64>,            // Only at the end of epoch, sub-epoch, and slot
 }
 
+#[cfg_attr(feature = "serde", derive(Serialize))]
 #[streamable]
 pub struct InfusedChallengeChainSubSlot {
     infused_challenge_chain_end_of_slot_vdf: VDFInfo,
 }
 
+#[cfg_attr(feature = "serde", derive(Serialize))]
 #[streamable]
 pub struct RewardChainSubSlot {
     end_of_slot_vdf: VDFInfo,
@@ -39,6 +43,7 @@ pub struct RewardChainSubSlot {
     deficit: u8, // 16 or less. usually zero
 }
 
+#[cfg_attr(feature = "serde", derive(Serialize))]
 #[streamable]
 pub struct SubSlotProofs {
     challenge_chain_slot_proof: VDFProof,

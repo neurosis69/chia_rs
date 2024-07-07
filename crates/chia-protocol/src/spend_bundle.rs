@@ -17,6 +17,7 @@ use pyo3::prelude::*;
 #[cfg(feature = "serde")]
 use serde::{Serialize};
 
+#[cfg_attr(feature = "serde", derive(Serialize))]
 #[streamable]
 pub struct SpendBundle {
     coin_spends: Vec<CoinSpend>,

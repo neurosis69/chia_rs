@@ -10,6 +10,7 @@ use pyo3::prelude::*;
 #[cfg(feature = "serde")]
 use serde::{Serialize};
 
+#[cfg_attr(feature = "serde", derive(Serialize))]
 #[streamable]
 pub struct RewardChainBlockUnfinished {
     total_iters: u128,
@@ -22,6 +23,7 @@ pub struct RewardChainBlockUnfinished {
     reward_chain_sp_signature: G2Element,
 }
 
+#[cfg_attr(feature = "serde", derive(Serialize))]
 #[streamable]
 pub struct RewardChainBlock {
     weight: u128,

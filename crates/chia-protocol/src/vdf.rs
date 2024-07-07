@@ -5,6 +5,7 @@ use crate::{Bytes, Bytes32};
 #[cfg(feature = "serde")]
 use serde::{Serialize};
 
+#[cfg_attr(feature = "serde", derive(Serialize))]
 #[streamable]
 pub struct VDFInfo {
     challenge: Bytes32,
@@ -12,6 +13,7 @@ pub struct VDFInfo {
     output: ClassgroupElement,
 }
 
+#[cfg_attr(feature = "serde", derive(Serialize))]
 #[streamable]
 pub struct VDFProof {
     witness_type: u8,

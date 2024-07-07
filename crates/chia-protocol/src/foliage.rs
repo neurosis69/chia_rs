@@ -7,6 +7,7 @@ use chia_bls::G2Element;
 #[cfg(feature = "serde")]
 use serde::{Serialize};
 
+#[cfg_attr(feature = "serde", derive(Serialize))]
 #[streamable]
 pub struct TransactionsInfo {
     // Information that goes along with each transaction block
@@ -18,6 +19,7 @@ pub struct TransactionsInfo {
     reward_claims_incorporated: Vec<Coin>, // These can be in any order
 }
 
+#[cfg_attr(feature = "serde", derive(Serialize))]
 #[streamable]
 pub struct FoliageTransactionBlock {
     // Information that goes along with each transaction block that is relevant for light clients
@@ -29,6 +31,7 @@ pub struct FoliageTransactionBlock {
     transactions_info_hash: Bytes32,
 }
 
+#[cfg_attr(feature = "serde", derive(Serialize))]
 #[streamable]
 pub struct FoliageBlockData {
     // Part of the block that is signed by the plot key
@@ -39,6 +42,7 @@ pub struct FoliageBlockData {
     extension_data: Bytes32, // Used for future updates. Can be any 32 byte value initially
 }
 
+#[cfg_attr(feature = "serde", derive(Serialize))]
 #[streamable]
 pub struct Foliage {
     // The entire foliage block, containing signature and the unsigned back pointer

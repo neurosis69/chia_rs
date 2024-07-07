@@ -8,6 +8,7 @@ use crate::{
 #[cfg(feature = "serde")]
 use serde::{Serialize};
 
+#[cfg_attr(feature = "serde", derive(Serialize))]
 #[streamable]
 pub struct UnfinishedHeaderBlock {
     /// Same as a FullBlock but without TransactionInfo and Generator, used by light clients.

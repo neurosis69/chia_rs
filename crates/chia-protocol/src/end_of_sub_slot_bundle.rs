@@ -7,6 +7,7 @@ use crate::SubSlotProofs;
 #[cfg(feature = "serde")]
 use serde::{Serialize};
 
+#[cfg_attr(feature = "serde", derive(Serialize))]
 #[streamable]
 pub struct EndOfSubSlotBundle {
     challenge_chain: ChallengeChainSubSlot,
