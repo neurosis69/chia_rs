@@ -4,7 +4,7 @@ use crate::ChallengeChainSubSlot;
 use crate::InfusedChallengeChainSubSlot;
 use crate::RewardChainSubSlot;
 use crate::SubSlotProofs;
-[cfg(feature = "serde")]
+#[cfg(feature = "serde")]
 use serde::{Serialize};
 
 #[streamable]
