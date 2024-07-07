@@ -9,20 +9,14 @@ use std::hash::{Hash, Hasher};
 use std::io::Cursor;
 use std::mem::MaybeUninit;
 use std::ops::{Add, AddAssign, Neg, SubAssign};
-#[cfg(feature = "serde")]
-use serde::{Serialize};
 
 #[cfg_attr(
     feature = "py-bindings",
     pyo3::pyclass(name = "G1Element"),
     derive(chia_py_streamable_macro::PyStreamable)
 )]
-#[cfg_attr(feature = "serde", derive(Serialize))]
 #[derive(Clone, Copy, Default)]
-pub struct PublicKey(
-    #[cfg_attr(feature = "serde", serde(skip))] 
-    pub(crate) blst_p1
-);
+pub struct PublicKey(pub(crate) blst_p1);
 
 #[cfg(feature = "arbitrary")]
 impl<'a> arbitrary::Arbitrary<'a> for PublicKey {
