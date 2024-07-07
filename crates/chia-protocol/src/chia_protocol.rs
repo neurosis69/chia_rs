@@ -148,7 +148,6 @@ impl chia_traits::ChiaToPython for ProtocolMessageTypes {
     }
 }
 
-#[cfg_attr(feature = "serde", derive(Serialize))]
 pub trait ChiaProtocolMessage {
     fn msg_type() -> ProtocolMessageTypes;
 }
