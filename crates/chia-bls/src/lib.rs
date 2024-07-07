@@ -25,7 +25,5 @@ pub use signature::{
     hash_to_g2_with_dst, sign, sign_raw, verify, Signature,
 };
 
-#[cfg_attr(feature = "serde", derive(Serialize))]
 pub type G1Element = PublicKey;
-#[cfg_attr(feature = "serde", derive(Serialize))]
 pub type G2Element = Signature;
